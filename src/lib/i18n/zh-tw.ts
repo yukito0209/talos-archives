@@ -68,5 +68,28 @@ export const zh_tw: Dictionary = {
       access_file: "訪問檔案",
       confidential: "機密",
     }
+  },
+  archives_page: {
+    title: "專案歸檔",
+    subtitle: "機密開發數據",
+    filter: {
+      all: "全部紀錄",
+      web: "Web開發",
+      game: "遊戲開發",
+      design: "設計/營運",
+    },
+    view_project: "查看協議",
+  },
+  logistics: {
+    title: "後勤支援",
+    subtitle: "補給投放 & 通訊鏈路",
+    supply_drop: "補給投放 // 履歷",
+    download_zh: "下載中文版",
+    download_en: "下載英文版",
+    transmission: "加密通訊",
+    contact_text: "通過安全頻道發起直接通訊。",
+    email_label: "主頻段 (EMAIL)",
+    social_signals: "信號頻段",
+    copy_success: "已複製到剪貼板",
   }
 };

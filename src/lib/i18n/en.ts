@@ -66,6 +66,29 @@ export const en = {
       access_file: "ACCESS_FILE",
       confidential: "CONFIDENTIAL",
     }
+  },
+  archives_page: {
+    title: "PROJECT ARCHIVES",
+    subtitle: "CLASSIFIED DEVELOPMENT DATA",
+    filter: {
+      all: "ALL_RECORDS",
+      web: "WEB_DEV",
+      game: "GAME_DEV",
+      design: "DESIGN/OPS",
+    },
+    view_project: "VIEW PROTOCOL",
+  },
+  logistics: {
+    title: "LOGISTICS SUPPORT",
+    subtitle: "SUPPLY DROP & COMM-LINKS",
+    supply_drop: "SUPPLY DROP // RESUME",
+    download_zh: "DOWNLOAD_CN_VER",
+    download_en: "DOWNLOAD_EN_VER",
+    transmission: "ENCRYPTED TRANSMISSION",
+    contact_text: "Initiate direct communication via secure channels.",
+    email_label: "PRIMARY FREQUENCY (EMAIL)",
+    social_signals: "SIGNAL BANDS",
+    copy_success: "COPIED TO CLIPBOARD",
   }
 };
 

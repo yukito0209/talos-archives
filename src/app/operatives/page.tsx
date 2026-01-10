@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { User, Briefcase, GraduationCap, FileText, ChevronRight, Activity, Cpu } from "lucide-react";
 import clsx from "clsx";
 import { useTranslation, Language } from "@/lib/i18n/TranslationContext";
+import { useScifiSound } from "@/hooks/useScifiSound";
 
 // --- Types ---
 type TabType = 'info' | 'experience' | 'works';
@@ -195,8 +196,8 @@ const OPERATOR_DATA = {
       },
       {
         id: 2,
-        school: "南京資訊工程大學",
-        degree: "工學學士 - 電腦科學與技術",
+        school: "南京信息工程大學",
+        degree: "工學學士 - 計算機科學與技術",
         period: "2020 - 2024",
       }
     ],
@@ -287,6 +288,7 @@ const RadarChart = ({ stats }: { stats: typeof OPERATOR_DATA.en.stats }) => {
 export default function OperativesPage() {
   const [activeTab, setActiveTab] = useState<TabType>('info');
   const { t, language } = useTranslation();
+  const { playHover, playClick } = useScifiSound();
   
   // Select data based on current language
   const data = OPERATOR_DATA[language as keyof typeof OPERATOR_DATA] || OPERATOR_DATA['en'];
@@ -365,7 +367,8 @@ export default function OperativesPage() {
             ].map((tab) => (
                 <button
                     key={tab.id}
-                    onClick={() => setActiveTab(tab.id as TabType)}
+                    onClick={() => { setActiveTab(tab.id as TabType); playClick(); }}
+                    onMouseEnter={() => playHover()}
                     className={clsx(
                         "px-6 py-3 font-mono text-xs font-bold tracking-wider flex items-center gap-2 transition-all duration-300 border-t border-l border-r",
                         activeTab === tab.id 

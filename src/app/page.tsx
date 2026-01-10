@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import { ArrowRight, Terminal, Hexagon } from "lucide-react";
 import Link from "next/link";
 import { useTranslation } from "@/lib/i18n/TranslationContext";
+import TerrainBackground from "@/components/visuals/TerrainBackground";
 
 export default function Home() {
   const { t } = useTranslation();
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] px-4">
+      <TerrainBackground />
       {/* Central Hero Concept */}
       <div className="relative max-w-4xl w-full">
         

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Rajdhani, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import NavigationSystem from "@/components/NavigationSystem";
-import ScrollNavigation from "@/components/ScrollNavigation";
+import NavigationSystem from "@/components/layout/NavigationSystem";
+import ScrollNavigation from "@/components/layout/ScrollNavigation";
 import { TranslationProvider } from "@/lib/i18n/TranslationContext";
 
 const rajdhani = Rajdhani({ 

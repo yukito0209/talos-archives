@@ -11,11 +11,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { useTranslation } from "@/lib/i18n/TranslationContext";
+import { useScifiSound } from "@/hooks/useScifiSound";
 
 export default function NavigationSystem() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const { t, language, setLanguage } = useTranslation();
+  const { playHover, playClick, playOpen } = useScifiSound();
 
   // Close sidebar on route change
   useEffect(() => {
@@ -23,6 +25,7 @@ export default function NavigationSystem() {
   }, [pathname]);
 
   const toggleLanguage = () => {
+    playClick();
     if (language === 'en') setLanguage('zh-cn');
     else if (language === 'zh-cn') setLanguage('zh-tw');
     else setLanguage('en');
@@ -45,7 +48,8 @@ export default function NavigationSystem() {
         <div className="flex items-center gap-6">
           {/* Menu Trigger */}
           <button 
-            onClick={() => setIsOpen(true)}
+            onClick={() => { setIsOpen(true); playOpen(); }}
+            onMouseEnter={playHover}
             className="text-white/70 hover:text-talos-yellow transition-colors p-2 -ml-2 hover:bg-white/5"
             aria-label="Open Menu"
           >
@@ -70,6 +74,7 @@ export default function NavigationSystem() {
            
            <button 
              onClick={toggleLanguage}
+             onMouseEnter={playHover}
              className="flex items-center gap-2 hover:text-white transition-colors"
            >
              <Globe className="w-3 h-3" />
@@ -130,6 +135,8 @@ export default function NavigationSystem() {
                       key={item.id} 
                       href={item.href}
                       className="block group"
+                      onClick={playClick}
+                      onMouseEnter={playHover}
                     >
                       <div className={clsx(
                         "relative flex items-center gap-4 px-4 py-4 border border-transparent transition-all duration-300",
