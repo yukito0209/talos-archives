@@ -17,6 +17,8 @@ export const zh: Dictionary = {
     disconnect: "断开连接",
     welcome: "欢迎",
     enter: "进入",
+    sound_muted: "静默模式",
+    sound_on: "触觉反馈",
   },
   nav: {
     menu: "菜单",
@@ -91,5 +93,11 @@ export const zh: Dictionary = {
     email_label: "主频段 (EMAIL)",
     social_signals: "信号频段",
     copy_success: "已复制到剪贴板",
+  },
+  access_denied: {
+    warning: "警告：受限区域",
+    message: "需要 5 级权限。访问已被拒绝。",
+    return: "返回安全区域",
+    error_code: "ERR_PROTOCOL_MISSING",
   }
 };

@@ -15,6 +15,8 @@ export const en = {
     disconnect: "DISCONNECT",
     welcome: "WELCOME",
     enter: "ENTER",
+    sound_muted: "MUTED",
+    sound_on: "HAPTIC_ON",
   },
   nav: {
     menu: "MENU",
@@ -89,6 +91,12 @@ export const en = {
     email_label: "PRIMARY FREQUENCY (EMAIL)",
     social_signals: "SIGNAL BANDS",
     copy_success: "COPIED TO CLIPBOARD",
+  },
+  access_denied: {
+    warning: "WARNING: RESTRICTED AREA",
+    message: "Authorization Level 5 Required. Access Denied.",
+    return: "RETURN TO SAFETY",
+    error_code: "ERR_PROTOCOL_MISSING",
   }
 };
 

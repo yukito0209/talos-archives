@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   Menu, X, Home, HardDrive, Users, 
   Database, Eye, Box, Megaphone, 
-  Settings, Power, ChevronRight, Globe 
+  Settings, Power, ChevronRight, Globe,
+  Volume2, VolumeX
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,7 +18,7 @@ export default function NavigationSystem() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const { t, language, setLanguage } = useTranslation();
-  const { playHover, playClick, playOpen } = useScifiSound();
+  const { playHover, playClick, playOpen, isMuted, toggleMute } = useScifiSound();
 
   // Close sidebar on route change
   useEffect(() => {
@@ -72,6 +73,15 @@ export default function NavigationSystem() {
               <span>{t.common.server_online}</span>
            </div>
            
+           <button 
+             onClick={toggleMute}
+             className="flex items-center gap-2 hover:text-white transition-colors"
+             aria-label={isMuted ? "Unmute" : "Mute"}
+           >
+             {isMuted ? <VolumeX className="w-3 h-3 text-red-500" /> : <Volume2 className="w-3 h-3" />}
+             <span>{isMuted ? t.common.sound_muted : t.common.sound_on}</span>
+           </button>
+
            <button 
              onClick={toggleLanguage}
              onMouseEnter={playHover}

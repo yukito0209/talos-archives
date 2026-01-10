@@ -57,10 +57,12 @@ export default function Home() {
                </span>
             </Link>
             
-            <button className="px-6 py-3 border border-white/20 text-white font-mono uppercase text-sm hover:bg-white/5 transition-colors flex items-center gap-2">
-               <Terminal size={16} />
-               {t.home.system_logs}
-            </button>
+            <Link href="/logs">
+              <button className="px-6 py-3 border border-white/20 text-white font-mono uppercase text-sm hover:bg-white/5 transition-colors flex items-center gap-2 h-full">
+                 <Terminal size={16} />
+                 {t.home.system_logs}
+              </button>
+            </Link>
           </div>
         </motion.div>
       </div>

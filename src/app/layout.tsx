@@ -4,6 +4,7 @@ import "./globals.css";
 import NavigationSystem from "@/components/layout/NavigationSystem";
 import ScrollNavigation from "@/components/layout/ScrollNavigation";
 import { TranslationProvider } from "@/lib/i18n/TranslationContext";
+import { SoundProvider } from "@/lib/audio/SoundContext";
 
 const rajdhani = Rajdhani({ 
   subsets: ["latin"], 
@@ -30,18 +31,20 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${rajdhani.variable} ${mono.variable} font-sans min-h-screen flex flex-col`}>
         <TranslationProvider>
-          <NavigationSystem />
-          <ScrollNavigation />
+          <SoundProvider>
+            <NavigationSystem />
+            <ScrollNavigation />
 
-          <main className="flex-grow pt-20 relative px-6">
-            <div className="absolute inset-0 grid-bg -z-10 pointer-events-none"></div>
-            {children}
-          </main>
+            <main className="flex-grow pt-20 relative px-6">
+              <div className="absolute inset-0 grid-bg -z-10 pointer-events-none"></div>
+              {children}
+            </main>
 
-          <footer className="h-12 border-t border-white/10 flex items-center justify-between px-8 font-mono text-[10px] text-white/30 bg-black/80 backdrop-blur">
-               <span>SYS_READY...</span>
-               <span>COPYRIGHT © 2026 TALOS INDUSTRIES</span>
-          </footer>
+            <footer className="h-12 border-t border-white/10 flex items-center justify-between px-8 font-mono text-[10px] text-white/30 bg-black/80 backdrop-blur">
+                 <span>SYS_READY...</span>
+                 <span>COPYRIGHT © 2026 TALOS INDUSTRIES</span>
+            </footer>
+          </SoundProvider>
         </TranslationProvider>
       </body>
     </html>
