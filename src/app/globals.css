@@ -58,6 +58,14 @@ body {
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   }
 
+  .section-header {
+    @apply font-bold text-lg tracking-widest text-white mb-6 flex items-center gap-4;
+  }
+  .section-header::before {
+    content: '';
+    @apply w-1 h-4 bg-talos-yellow block;
+  }
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;

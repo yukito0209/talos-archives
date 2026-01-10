@@ -5,30 +5,38 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   Menu, X, Home, HardDrive, Users, 
   Database, Eye, Box, Megaphone, 
-  Settings, Power, ChevronRight 
+  Settings, Power, ChevronRight, Globe 
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-
-const MENU_ITEMS = [
-  { id: 'home', label: 'DASHBOARD', icon: Home, href: '/' },
-  { id: 'personnel', label: 'OPERATIVES', icon: Users, href: '/operatives' },
-  { id: 'archives', label: 'DATA_ARCHIVES', icon: Database, href: '/archives' },
-  { id: 'visuals', label: 'SURVEILLANCE', icon: Eye, href: '/visuals' },
-  { id: 'logistics', label: 'LOGISTICS', icon: Box, href: '/logistics' },
-  { id: 'system', label: 'SYSTEM_LOGS', icon: HardDrive, href: '/logs' },
-  { id: 'broadcast', label: 'BROADCAST', icon: Megaphone, href: '/news' },
-];
+import { useTranslation } from "@/lib/i18n/TranslationContext";
 
 export default function NavigationSystem() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const { t, language, setLanguage } = useTranslation();
 
   // Close sidebar on route change
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
+
+  const toggleLanguage = () => {
+    if (language === 'en') setLanguage('zh-cn');
+    else if (language === 'zh-cn') setLanguage('zh-tw');
+    else setLanguage('en');
+  };
+
+  const MENU_ITEMS = [
+    { id: 'home', label: t.nav.dashboard, icon: Home, href: '/' },
+    { id: 'personnel', label: t.nav.operatives, icon: Users, href: '/operatives' },
+    { id: 'archives', label: t.nav.archives, icon: Database, href: '/archives' },
+    { id: 'visuals', label: t.nav.surveillance, icon: Eye, href: '/visuals' },
+    { id: 'logistics', label: t.nav.logistics, icon: Box, href: '/logistics' },
+    { id: 'system', label: t.nav.system_logs, icon: HardDrive, href: '/logs' },
+    { id: 'broadcast', label: t.nav.broadcast, icon: Megaphone, href: '/news' },
+  ];
 
   return (
     <>
@@ -57,8 +65,17 @@ export default function NavigationSystem() {
         <div className="hidden md:flex items-center gap-4 font-mono text-xs text-white/40">
            <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-              <span>SERVER_ONLINE</span>
+              <span>{t.common.server_online}</span>
            </div>
+           
+           <button 
+             onClick={toggleLanguage}
+             className="flex items-center gap-2 hover:text-white transition-colors"
+           >
+             <Globe className="w-3 h-3" />
+             {language.toUpperCase()}
+           </button>
+           
            <div>:: 24.331 ::</div>
         </div>
       </header>
@@ -87,7 +104,7 @@ export default function NavigationSystem() {
               {/* Sidebar Header */}
               <div className="h-24 border-b border-white/10 flex items-center justify-between px-8 bg-white/5">
                  <div className="font-bold text-3xl tracking-tighter text-white">
-                    MENU //
+                    {t.nav.menu} //
                  </div>
                  <button 
                   onClick={() => setIsOpen(false)}
@@ -117,7 +134,7 @@ export default function NavigationSystem() {
                       <div className={clsx(
                         "relative flex items-center gap-4 px-4 py-4 border border-transparent transition-all duration-300",
                         "hover:bg-white/5 hover:border-white/10",
-                        index === 0 ? "bg-white/5 border-white/10" : "" // Active state simulation for demo
+                        pathname === item.href ? "bg-white/5 border-white/10" : "" 
                       )}>
                         {/* Hover Highlight Bar */}
                         <div className="absolute left-0 top-0 bottom-0 w-1 bg-talos-yellow transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
@@ -154,19 +171,22 @@ export default function NavigationSystem() {
                         <Users size={20} />
                     </div>
                     <div className="flex-1">
-                        <div className="text-xs text-gray-400 font-mono">CURRENT USER</div>
-                        <div className="text-sm font-bold text-white">GUEST_COMMANDER</div>
+                        <div className="text-xs text-gray-400 font-mono">{t.common.current_user}</div>
+                        <div className="text-sm font-bold text-white">{t.common.guest_commander}</div>
                     </div>
                     <div className="w-2 h-2 bg-talos-yellow rounded-full animate-ping"></div>
                  </div>
 
                  {/* Action Buttons */}
                  <div className="grid grid-cols-2 gap-4">
-                    <button className="flex items-center justify-center gap-2 py-3 border border-white/10 text-xs font-mono text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
-                        <Settings size={14} /> SETTINGS
+                    <button 
+                      onClick={toggleLanguage}
+                      className="flex items-center justify-center gap-2 py-3 border border-white/10 text-xs font-mono text-gray-400 hover:bg-white/5 hover:text-white transition-colors"
+                    >
+                        <Globe size={14} /> {language.toUpperCase()}
                     </button>
                     <button className="flex items-center justify-center gap-2 py-3 bg-red-900/20 border border-red-500/20 text-xs font-mono text-red-400 hover:bg-red-900/40 transition-colors">
-                        <Power size={14} /> DISCONNECT
+                        <Power size={14} /> {t.common.disconnect}
                     </button>
                  </div>
               </div>

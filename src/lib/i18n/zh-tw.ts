@@ -1,0 +1,72 @@
+import { Dictionary } from "./en";
+
+export const zh_tw: Dictionary = {
+  common: {
+    status: "狀態",
+    logs: "紀錄",
+    protocols: "協議",
+    contact: "聯繫",
+    loading: "載入中...",
+    access_denied: "訪問拒絕",
+    system_ready: "系統就緒...",
+    copyright: "版權所有 © 2026 塔羅斯工業",
+    server_online: "伺服器在線",
+    current_user: "當前用戶",
+    guest_commander: "訪客指揮官",
+    settings: "設置",
+    disconnect: "斷開連接",
+    welcome: "歡迎",
+    enter: "進入",
+  },
+  nav: {
+    menu: "選單",
+    dashboard: "儀表板",
+    operatives: "幹員檔案",
+    archives: "數據檔案",
+    surveillance: "監控中心",
+    logistics: "後勤概覽",
+    system_logs: "系統紀錄",
+    broadcast: "廣播訊號",
+  },
+  home: {
+    system_notification: "系統通知：在線",
+    welcome_title: "歡 迎 來 到",
+    talos_sector: "塔 羅 斯 扇 區",
+    init_text_1: "> 初始化視覺介面...",
+    init_text_2: "> 載入個人檔案...",
+    content_text: "此處為限制區域。僅限授權人員進入。訪問數據需要 4 級權限。",
+    enter_archives: "進入檔案",
+    system_logs: "系統紀錄",
+  },
+  operatives: {
+    codename: "代號",
+    class: "職能",
+    id: "編號",
+    loc: "地點",
+    status: "狀態",
+    active: "活躍",
+    clearance: "權限",
+    level: "等級",
+    tabs: {
+      info: "檔案_01 // 資訊",
+      experience: "檔案_02 // 履歷",
+      works: "檔案_03 // 作品",
+    },
+    basic_info: "基礎資訊",
+    education_history: "學歷背景",
+    combat_records: "作戰記錄 (工作經歷)",
+    fields: {
+      real_name: "真實姓名",
+      gender: "性別",
+      hometown: "家鄉",
+      email: "電子信箱",
+      github: "GITHUB",
+      specialty: "專長",
+      years_exp: "工作年資",
+    },
+    works: {
+      access_file: "訪問檔案",
+      confidential: "機密",
+    }
+  }
+};

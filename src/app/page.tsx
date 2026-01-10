@@ -2,8 +2,12 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Terminal, Hexagon } from "lucide-react";
+import Link from "next/link";
+import { useTranslation } from "@/lib/i18n/TranslationContext";
 
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] px-4">
       {/* Central Hero Concept */}
@@ -29,31 +33,31 @@ export default function Home() {
           <div className="absolute top-0 left-0 w-full h-1 bg-talos-yellow/20 shadow-[0_0_15px_rgba(255,215,0,0.5)] animate-scan"></div>
           
           <div className="font-mono text-talos-yellow text-sm mb-4 tracking-widest border border-talos-yellow/30 inline-block px-3 py-1 rounded-sm bg-talos-yellow/5">
-            SYSTEM NOTIFICATION: ONLINE
+            {t.home.system_notification}
           </div>
 
           <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter uppercase">
-            Welcome to <br/> 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">Talos Sector</span>
+            {t.home.welcome_title} <br/> 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">{t.home.talos_sector}</span>
           </h2>
 
           <p className="text-gray-400 font-mono max-w-xl mx-auto mb-10 text-sm md:text-base leading-relaxed">
-            &gt; Initializing visual interface... <br/>
-            &gt; Loading personal archives... <br/>
-            This is a restricted area. Authorized personnel only. Accessing data requires clearance level 4.
+            {t.home.init_text_1} <br/>
+            {t.home.init_text_2} <br/>
+            {t.home.content_text}
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="group relative px-6 py-3 bg-talos-yellow text-black font-bold font-mono uppercase text-sm hover:bg-white transition-colors duration-300">
+            <Link href="/operatives" className="group relative px-6 py-3 bg-talos-yellow text-black font-bold font-mono uppercase text-sm hover:bg-white transition-colors duration-300 inline-block">
                <span className="absolute inset-0 border border-talos-yellow transform -translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform"></span>
                <span className="flex items-center gap-2">
-                 Enter Archives <ArrowRight size={16} />
+                 {t.home.enter_archives} <ArrowRight size={16} />
                </span>
-            </button>
+            </Link>
             
             <button className="px-6 py-3 border border-white/20 text-white font-mono uppercase text-sm hover:bg-white/5 transition-colors flex items-center gap-2">
                <Terminal size={16} />
-               System Logs
+               {t.home.system_logs}
             </button>
           </div>
         </motion.div>

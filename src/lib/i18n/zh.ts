@@ -1,0 +1,72 @@
+import { Dictionary } from "./en";
+
+export const zh: Dictionary = {
+  common: {
+    status: "状态",
+    logs: "日志",
+    protocols: "协议",
+    contact: "联系",
+    loading: "加载中...",
+    access_denied: "访问拒绝",
+    system_ready: "系统就绪...",
+    copyright: "版权所有 © 2026 塔罗斯工业",
+    server_online: "服务器在线",
+    current_user: "当前用户",
+    guest_commander: "访客指挥官",
+    settings: "设置",
+    disconnect: "断开连接",
+    welcome: "欢迎",
+    enter: "进入",
+  },
+  nav: {
+    menu: "菜单",
+    dashboard: "仪表盘",
+    operatives: "干员档案",
+    archives: "数据归档",
+    surveillance: "监控中心",
+    logistics: "后勤概览",
+    system_logs: "系统日志",
+    broadcast: "广播消息",
+  },
+  home: {
+    system_notification: "系统通知：在线",
+    welcome_title: "欢 迎 来 到",
+    talos_sector: "塔 罗 斯 扇 区",
+    init_text_1: "> 初始化视觉接口...",
+    init_text_2: "> 加载个人档案...",
+    content_text: "此处为限制区域。仅限授权人员进入。访问数据需要 4 级权限。",
+    enter_archives: "进入档案",
+    system_logs: "系统日志",
+  },
+  operatives: {
+    codename: "代号",
+    class: "职业",
+    id: "编号",
+    loc: "地点",
+    status: "状态",
+    active: "活跃",
+    clearance: "权限",
+    level: "等级",
+    tabs: {
+      info: "档案_01 // 信息",
+      experience: "档案_02 // 履历",
+      works: "档案_03 // 作品",
+    },
+    basic_info: "基础信息",
+    education_history: "教育背景",
+    combat_records: "作战记录 (工作经历)",
+    fields: {
+      real_name: "真实姓名",
+      gender: "性别",
+      hometown: "家乡",
+      email: "电子邮箱",
+      github: "GITHUB",
+      specialty: "专长",
+      years_exp: "工作年限",
+    },
+    works: {
+      access_file: "访问文件",
+      confidential: "绝密",
+    }
+  }
+};

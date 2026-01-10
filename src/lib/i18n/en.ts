@@ -1,0 +1,72 @@
+export const en = {
+  common: {
+    status: "STATUS",
+    logs: "LOGS",
+    protocols: "PROTOCOLS",
+    contact: "CONTACT",
+    loading: "LOADING...",
+    access_denied: "ACCESS DENIED",
+    system_ready: "SYS_READY...",
+    copyright: "COPYRIGHT © 2026 TALOS INDUSTRIES",
+    server_online: "SERVER_ONLINE",
+    current_user: "CURRENT USER",
+    guest_commander: "GUEST_COMMANDER",
+    settings: "SETTINGS",
+    disconnect: "DISCONNECT",
+    welcome: "WELCOME",
+    enter: "ENTER",
+  },
+  nav: {
+    menu: "MENU",
+    dashboard: "DASHBOARD",
+    operatives: "OPERATIVES",
+    archives: "DATA_ARCHIVES",
+    surveillance: "SURVEILLANCE",
+    logistics: "LOGISTICS",
+    system_logs: "SYSTEM_LOGS",
+    broadcast: "BROADCAST",
+  },
+  home: {
+    system_notification: "SYSTEM NOTIFICATION: ONLINE",
+    welcome_title: "Welcome to",
+    talos_sector: "Talos Sector",
+    init_text_1: "> Initializing visual interface...",
+    init_text_2: "> Loading personal archives...",
+    content_text: "This is a restricted area. Authorized personnel only. Accessing data requires clearance level 4.",
+    enter_archives: "Enter Archives",
+    system_logs: "System Logs",
+  },
+  operatives: {
+    codename: "CODENAME",
+    class: "CLASS",
+    id: "ID",
+    loc: "LOC",
+    status: "STATUS",
+    active: "ACTIVE",
+    clearance: "CLEARANCE",
+    level: "LEVEL",
+    tabs: {
+      info: "ARCHIVE_01 // INFO",
+      experience: "ARCHIVE_02 // EXPERIENCE",
+      works: "ARCHIVE_03 // WORKS",
+    },
+    basic_info: "BASIC INFORMATION",
+    education_history: "EDUCATION HISTORY",
+    combat_records: "COMBAT RECORDS (WORK EXP)",
+    fields: {
+      real_name: "REAL NAME",
+      gender: "GENDER",
+      hometown: "HOMETOWN",
+      email: "EMAIL",
+      github: "GITHUB",
+      specialty: "SPECIALTY",
+      years_exp: "YEARS OF EXP",
+    },
+    works: {
+      access_file: "ACCESS_FILE",
+      confidential: "CONFIDENTIAL",
+    }
+  }
+};
+
+export type Dictionary = typeof en;
