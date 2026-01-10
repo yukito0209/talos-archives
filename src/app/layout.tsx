@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Rajdhani, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import NavigationSystem from "@/components/NavigationSystem";
 
 const rajdhani = Rajdhani({ 
   subsets: ["latin"], 
@@ -26,25 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${rajdhani.variable} ${mono.variable} font-sans min-h-screen flex flex-col`}>
-        {/* Top Decorative Bar */}
-        <header className="fixed top-0 left-0 w-full h-16 border-b border-white/10 z-50 flex items-center justify-between px-6 md:px-12 backdrop-blur-md bg-black/40">
-            <div className="flex items-center gap-4">
-                <div className="w-2 h-8 bg-talos-yellow animate-pulse"></div>
-                <h1 className="font-bold text-2xl tracking-[0.2em] text-white">
-                    TALOS <span className="text-talos-yellow">//</span> ARCHIVES
-                </h1>
-            </div>
-            <nav className="hidden md:flex gap-8 font-mono text-xs text-gray-400">
-                {['STATUS', 'LOGS', 'PROTOCOLS', 'CONTACT'].map((item) => (
-                    <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-talos-yellow hover:bg-white/5 px-2 py-1 transition-all duration-300 relative group">
-                        <span className="opacity-0 group-hover:opacity-100 absolute -left-2 text-talos-yellow">&gt;</span>
-                        [{item}]
-                    </a>
-                ))}
-            </nav>
-        </header>
+        
+        <NavigationSystem />
 
-        <main className="flex-grow pt-20 relative">
+        <main className="flex-grow pt-20 relative px-6">
           <div className="absolute inset-0 grid-bg -z-10 pointer-events-none"></div>
           {children}
         </main>
