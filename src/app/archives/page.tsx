@@ -60,7 +60,7 @@ export default function ArchivesPage() {
     }
   ];
 
-  const filteredProjects = projects => {
+  const filteredProjects = (projects: typeof PROJECTS) => {
      if (filter === 'all') return projects;
      return projects.filter(p => p.category === filter);
   };
