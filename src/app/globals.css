@@ -47,9 +47,9 @@ body {
     content: '';
     position: absolute;
     top: -1px; left: -1px;
-    width: 8px; height: 8px;
-    border-top: 2px solid var(--color-talos-yellow);
-    border-left: 2px solid var(--color-talos-yellow);
+    width: 50px; height: 50px;
+    border-top: 10px solid var(--color-talos-yellow);
+    border-left: 10px solid var(--color-talos-yellow);
     z-index: 10;
   }
 
@@ -57,9 +57,9 @@ body {
     content: '';
     position: absolute;
     bottom: -1px; right: -1px;
-    width: 8px; height: 8px;
-    border-bottom: 2px solid var(--color-talos-yellow);
-    border-right: 2px solid var(--color-talos-yellow);
+    width: 50px; height: 50px;
+    border-bottom: 10px solid var(--color-talos-yellow);
+    border-right: 10px solid var(--color-talos-yellow);
     z-index: 10;
   }
 
