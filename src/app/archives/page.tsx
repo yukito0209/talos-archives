@@ -66,7 +66,7 @@ export default function ArchivesPage() {
   };
 
   return (
-    <div className="min-h-screen pt-12 pb-20 max-w-7xl mx-auto">
+    <div className="pt-12 pb-20 max-w-7xl mx-auto">
       
       {/* Header Section */}
       <div className="mb-12 border-l-4 border-talos-yellow pl-6 relative">

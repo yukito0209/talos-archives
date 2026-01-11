@@ -17,7 +17,7 @@ export default function LogisticsPage() {
   };
 
   return (
-    <div className="min-h-screen pt-12 pb-20 max-w-5xl mx-auto">
+    <div className="pt-12 pb-20 max-w-5xl mx-auto">
         
       {/* Header Section */}
       <div className="mb-16 border-l-4 border-talos-yellow pl-6 relative">

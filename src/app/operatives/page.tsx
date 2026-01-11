@@ -294,7 +294,7 @@ export default function OperativesPage() {
   const data = OPERATOR_DATA[language as keyof typeof OPERATOR_DATA] || OPERATOR_DATA['en'];
 
   return (
-    <div className="h-full w-full min-h-screen py-8 md:py-12 flex flex-col md:flex-row gap-6 max-w-7xl mx-auto">
+    <div className="h-full w-full py-8 md:py-12 flex flex-col md:flex-row gap-6 max-w-7xl mx-auto">
       
       {/* Left Column: Profile Card */}
       <motion.div 
