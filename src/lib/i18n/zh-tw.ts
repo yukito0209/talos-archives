@@ -32,8 +32,6 @@ export const zh_tw: Dictionary = {
   },
   home: {
     system_notification: "系統通知：在線",
-    welcome_title: "歡 迎 來 到",
-    talos_sector: "塔 羅 斯 扇 區",
     init_text_1: "> 初始化視覺介面...",
     init_text_2: "> 載入個人檔案...",
     content_text: "此處為限制區域。僅限授權人員進入。訪問數據需要 4 級權限。",

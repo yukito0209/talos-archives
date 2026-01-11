@@ -3,6 +3,8 @@
 @theme {
   --font-rajdhani: var(--font-rajdhani);
   --font-mono: var(--font-jetbrains-mono);
+  --font-noto-sans-sc: var(--font-noto-sans-sc);
+  --font-chakra: var(--font-chakra);
   
   --color-talos-yellow: #FFD700;
   --color-talos-dark: #0F0F0F;
@@ -17,7 +19,14 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-rajdhani), sans-serif;
+  /* 
+     字体策略：
+     1. Rajdhani: 主力英文字体，负责方正的科幻感标题和数字 (Endfield 风格的核心)
+     2. Chakra Petch: 可选的辅助英文字体，切角更明显，更具攻击性
+     3. Noto Sans SC: 中文字体，提供清晰且有工业厚重感的汉字显示
+     4. JetBrains Mono: 代码和数据展示
+  */
+  font-family: var(--font-rajdhani), var(--font-noto-sans-sc), sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

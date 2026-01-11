@@ -5,6 +5,7 @@ import { ArrowRight, Terminal, Hexagon } from "lucide-react";
 import Link from "next/link";
 import { useTranslation } from "@/lib/i18n/TranslationContext";
 import TerrainBackground from "@/components/visuals/TerrainBackground";
+import ParticleLogo from "@/components/visuals/ParticleLogo";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -38,10 +39,9 @@ export default function Home() {
             {t.home.system_notification}
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter uppercase">
-            {t.home.welcome_title} <br/> 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">{t.home.talos_sector}</span>
-          </h2>
+          <div className="mb-6 -mt-8">
+            <ParticleLogo className="!h-[200px] md:!h-[250px]" />
+          </div>
 
           <p className="text-gray-400 font-mono max-w-xl mx-auto mb-10 text-sm md:text-base leading-relaxed">
             {t.home.init_text_1} <br/>

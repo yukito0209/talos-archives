@@ -30,8 +30,6 @@ export const en = {
   },
   home: {
     system_notification: "SYSTEM NOTIFICATION: ONLINE",
-    welcome_title: "Welcome to",
-    talos_sector: "Talos Sector",
     init_text_1: "> Initializing visual interface...",
     init_text_2: "> Loading personal archives...",
     content_text: "This is a restricted area. Authorized personnel only. Accessing data requires clearance level 4.",
