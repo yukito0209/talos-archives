@@ -74,7 +74,7 @@ export const en = {
       all: "ALL_RECORDS",
       web: "WEB_DEV",
       game: "GAME_DEV",
-      design: "DESIGN/OPS",
+      data: "DATA/ML",
     },
     view_project: "VIEW PROTOCOL",
   },

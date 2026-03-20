@@ -76,7 +76,7 @@ export const zh: Dictionary = {
       all: "全部记录",
       web: "Web开发",
       game: "游戏开发",
-      design: "设计/运营",
+      data: "数据/ML",
     },
     view_project: "查看协议",
   },
