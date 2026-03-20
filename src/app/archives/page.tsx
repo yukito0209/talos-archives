@@ -3,61 +3,85 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "@/lib/i18n/TranslationContext";
-import { Code, Gamepad2, PenTool, ExternalLink, ShieldCheck, Database } from "lucide-react";
+import { Code, Gamepad2, ExternalLink, Database, Music, Image, BarChart3 } from "lucide-react";
 
-type Category = 'all' | 'web' | 'game' | 'design';
+type Category = 'all' | 'web' | 'game' | 'data';
 
 export default function ArchivesPage() {
   const { t } = useTranslation();
   const [filter, setFilter] = useState<Category>('all');
 
-  // Placeholder Data - Static for now, could be moved to i18n if descriptions need trans
   const PROJECTS = [
     {
       id: "P-001",
-      title: "TALOS_ARCHIVES",
+      title: "LUCIS",
       category: "web",
-      tech: ["Next.js", "Tailwind", "Framer Motion"],
+      tech: ["Electron", "React", "TypeScript", "Canvas API"],
       status: "ONLINE",
-      icon: Code,
-      desc: "Personal portfolio system with localized database and industrial UI.",
+      icon: Image,
+      desc: "A modern photo watermarking tool with glassmorphism design and real-time preview, built with Electron + React.",
+      url: "https://github.com/yukito0209/lucis",
     },
     {
       id: "P-002",
-      title: "FARLIGHT_84_OPS",
-      category: "game",
-      tech: ["Data Analysis", "Python", "Tableau"],
+      title: "OP_SIGHT",
+      category: "data",
+      tech: ["FastAPI", "PyTorch", "RoBERTa", "React"],
       status: "DEPLOYED",
-      icon: GraphIcon, 
-      desc: "Operational data pipeline and event tracking for battle royale title.",
+      icon: BarChart3,
+      desc: "Sentiment analysis system for Chinese player comments in anime game communities, with sarcasm detection and weak supervision training.",
+      url: "https://github.com/yukito0209/op-sight",
     },
     {
       id: "P-003",
-      title: "NEURAL_CLOUD_SIM",
+      title: "PYGAME_MINESWEEPER",
       category: "game",
-      tech: ["Unity", "C#", "Shader Graph"],
-      status: "PROTOTYPE",
+      tech: ["Python", "Pygame"],
+      status: "ONLINE",
       icon: Gamepad2,
-      desc: "Roguelike strategy prototype featuring procedural level generation.",
+      desc: "Classic Minesweeper game with three difficulty levels, full mouse/keyboard support, optimized for MacBook.",
+      url: "https://github.com/yukito0209/pygame-learning",
     },
     {
       id: "P-004",
-      title: "ENDFIELD_PROTOCOL",
-      category: "design",
-      tech: ["Figma", "After Effects"],
-      status: "CONCEPT",
-      icon: PenTool,
-      desc: "UI/UX design system concept for sci-fi tactical dashboard.",
+      title: "TAPTAP_SENTIMENT",
+      category: "data",
+      tech: ["Python", "scikit-learn", "XGBoost", "PyTorch"],
+      status: "DEPLOYED",
+      icon: Database,
+      desc: "ML project analyzing sentiment in TapTap game reviews, comparing traditional ML to deep learning with 86% accuracy via stacked ensemble.",
+      url: "https://github.com/yukito0209/sentiment-analysis-of-taptap-game-user-reviews",
     },
     {
       id: "P-005",
-      title: "AGGREGATE_DB",
+      title: "GODOT_GAME_DEMO",
+      category: "game",
+      tech: ["Godot", "GDScript"],
+      status: "PROTOTYPE",
+      icon: Gamepad2,
+      desc: "A simple 2D pixel game demo built with Godot Engine, exploring game development fundamentals.",
+      url: "https://github.com/yukito0209/my-first-godot-game-demo",
+    },
+    {
+      id: "P-006",
+      title: "YAHEE_MUSIC_PLAYER",
       category: "web",
-      tech: ["React", "Node.js", "PostgreSQL"],
-      status: "OFFLINE",
-      icon: Database,
-      desc: "Internal tool for aggregating player feedback and bug reports.",
-    }
+      tech: ["Electron", "TypeScript", "CSS"],
+      status: "ONLINE",
+      icon: Music,
+      desc: "A local music player built with Electron featuring glassmorphism UI, playlist management, and multi-format support.",
+      url: "https://github.com/yukito0209/yahee-music-player",
+    },
+    {
+      id: "P-007",
+      title: "ANIME_RECOMMENDATION",
+      category: "data",
+      tech: ["Python", "PyTorch", "BERT", "Plotly"],
+      status: "DEPLOYED",
+      icon: GraphIcon,
+      desc: "Hybrid anime recommendation system combining BERT embeddings with content-based and demographic filtering.",
+      url: "https://github.com/yukito0209/anime-recommendation",
+    },
   ];
 
   const filteredProjects = (projects: typeof PROJECTS) => {
@@ -84,7 +108,7 @@ export default function ArchivesPage() {
            { key: 'all', label: t.archives_page.filter.all },
            { key: 'web', label: t.archives_page.filter.web },
            { key: 'game', label: t.archives_page.filter.game },
-           { key: 'design', label: t.archives_page.filter.design },
+           { key: 'data', label: t.archives_page.filter.data },
          ].map((item) => (
            <button
              key={item.key}
@@ -156,9 +180,9 @@ export default function ArchivesPage() {
                             ))}
                         </div>
                         
-                        <button className="w-full py-2 border border-white/20 text-xs font-mono uppercase hover:bg-talos-yellow hover:text-black hover:border-talos-yellow transition-all duration-300 flex items-center justify-center gap-2">
+                        <a href={project.url} target="_blank" rel="noopener noreferrer" className="w-full py-2 border border-white/20 text-xs font-mono uppercase hover:bg-talos-yellow hover:text-black hover:border-talos-yellow transition-all duration-300 flex items-center justify-center gap-2">
                             {t.archives_page.view_project} <ExternalLink size={12} />
-                        </button>
+                        </a>
                     </div>
                 </div>
                 
