@@ -62,25 +62,60 @@ const OPERATOR_DATA = {
     works: [
       {
         id: 1,
-        title: "EVENT_ANALYSIS_LOG_01",
-        category: "DOCUMENTATION",
-        desc: "Comprehensive breakdown of seasonal event mechanics and user engagement loops.",
-        status: "CLASSIFIED"
+        title: "LUCIS",
+        category: "APP",
+        desc: "A modern photo watermarking tool with glassmorphism design and real-time preview, built with Electron + React.",
+        status: "ONLINE",
+        url: "https://github.com/yukito0209/lucis"
       },
       {
         id: 2,
-        title: "OPS_PLAN_DELTA",
-        category: "PLANNING",
-        desc: "Proposal for a new community engagement campaign targeting returning players.",
-        status: "PUBLIC"
+        title: "OP_SIGHT",
+        category: "DATA/ML",
+        desc: "Sentiment analysis system for Chinese player comments in anime game communities, with sarcasm detection.",
+        status: "ONLINE",
+        url: "https://github.com/yukito0209/op-sight"
       },
       {
-          id: 3,
-          title: "TALOS_ARCHIVES_SITE",
-          category: "DEVELOPMENT",
-          desc: "Personal portfolio website built with Next.js and Tailwind CSS with industrial sci-fi aesthetics.",
-          status: "ONLINE"
-        }
+        id: 3,
+        title: "PYGAME_MINESWEEPER",
+        category: "GAME",
+        desc: "Classic Minesweeper game with three difficulty levels, built with Python and Pygame.",
+        status: "ONLINE",
+        url: "https://github.com/yukito0209/pygame-learning"
+      },
+      {
+        id: 4,
+        title: "TAPTAP_SENTIMENT",
+        category: "DATA/ML",
+        desc: "ML project analyzing sentiment in TapTap game reviews with 86% accuracy via stacked ensemble.",
+        status: "ONLINE",
+        url: "https://github.com/yukito0209/sentiment-analysis-of-taptap-game-user-reviews"
+      },
+      {
+        id: 5,
+        title: "GODOT_GAME_DEMO",
+        category: "GAME",
+        desc: "A simple 2D pixel game demo built with Godot Engine, exploring game development fundamentals.",
+        status: "PROTOTYPE",
+        url: "https://github.com/yukito0209/my-first-godot-game-demo"
+      },
+      {
+        id: 6,
+        title: "YAHEE_MUSIC_PLAYER",
+        category: "APP",
+        desc: "A local music player built with Electron featuring glassmorphism UI and multi-format support.",
+        status: "ONLINE",
+        url: "https://github.com/yukito0209/yahee-music-player"
+      },
+      {
+        id: 7,
+        title: "ANIME_RECOMMENDATION",
+        category: "DATA/ML",
+        desc: "Hybrid anime recommendation system combining BERT embeddings with content-based filtering.",
+        status: "ONLINE",
+        url: "https://github.com/yukito0209/anime-recommendation"
+      }
     ]
   },
   'zh-cn': {
@@ -133,25 +168,60 @@ const OPERATOR_DATA = {
     works: [
       {
         id: 1,
-        title: "活动分析日志_01",
-        category: "文档",
-        desc: "季节性活动机制和用户参与循环的综合拆解。",
-        status: "机密"
+        title: "LUCIS",
+        category: "应用",
+        desc: "基于 Electron + React 构建的现代照片水印工具，支持毛玻璃设计风格和实时预览。",
+        status: "在线",
+        url: "https://github.com/yukito0209/lucis"
       },
       {
         id: 2,
-        title: "运营计划_DELTA",
-        category: "策划",
-        desc: "针对回流玩家的新社区参与活动提案。",
-        status: "公开"
+        title: "OP_SIGHT",
+        category: "数据/ML",
+        desc: "面向二次元游戏社区中文玩家评论的情感分析系统，支持反讽检测和弱监督训练。",
+        status: "在线",
+        url: "https://github.com/yukito0209/op-sight"
       },
       {
-          id: 3,
-          title: "TALOS_ARCHIVES 网站",
-          category: "开发",
-          desc: "使用 Next.js 和 Tailwind CSS 构建的工业科幻风格个人作品集网站。",
-          status: "在线"
-        }
+        id: 3,
+        title: "PYGAME_MINESWEEPER",
+        category: "游戏",
+        desc: "使用 Python 和 Pygame 开发的经典扫雷游戏，支持三种难度级别。",
+        status: "在线",
+        url: "https://github.com/yukito0209/pygame-learning"
+      },
+      {
+        id: 4,
+        title: "TAPTAP_SENTIMENT",
+        category: "数据/ML",
+        desc: "TapTap 游戏用户评论情感分析 ML 项目，通过堆叠集成达到 86% 准确率。",
+        status: "在线",
+        url: "https://github.com/yukito0209/sentiment-analysis-of-taptap-game-user-reviews"
+      },
+      {
+        id: 5,
+        title: "GODOT_GAME_DEMO",
+        category: "游戏",
+        desc: "使用 Godot 引擎构建的简单 2D 像素游戏 Demo，探索游戏开发基础。",
+        status: "原型",
+        url: "https://github.com/yukito0209/my-first-godot-game-demo"
+      },
+      {
+        id: 6,
+        title: "YAHEE_MUSIC_PLAYER",
+        category: "应用",
+        desc: "基于 Electron 构建的本地音乐播放器，毛玻璃 UI 设计，支持多种音频格式。",
+        status: "在线",
+        url: "https://github.com/yukito0209/yahee-music-player"
+      },
+      {
+        id: 7,
+        title: "ANIME_RECOMMENDATION",
+        category: "数据/ML",
+        desc: "结合 BERT 嵌入与基于内容过滤的混合动漫推荐系统。",
+        status: "在线",
+        url: "https://github.com/yukito0209/anime-recommendation"
+      }
     ]
   },
   'zh-tw': {
@@ -204,25 +274,60 @@ const OPERATOR_DATA = {
     works: [
       {
         id: 1,
-        title: "活動分析日誌_01",
-        category: "文檔",
-        desc: "季節性活動機制和用戶參與循環的綜合拆解。",
-        status: "機密"
+        title: "LUCIS",
+        category: "應用",
+        desc: "基於 Electron + React 構建的現代照片浮水印工具，支援毛玻璃設計風格和即時預覽。",
+        status: "在線",
+        url: "https://github.com/yukito0209/lucis"
       },
       {
         id: 2,
-        title: "營運計畫_DELTA",
-        category: "策劃",
-        desc: "針對回流玩家的新社區參與活動提案。",
-        status: "公開"
+        title: "OP_SIGHT",
+        category: "數據/ML",
+        desc: "面向二次元遊戲社群中文玩家評論的情感分析系統，支援反諷偵測和弱監督訓練。",
+        status: "在線",
+        url: "https://github.com/yukito0209/op-sight"
       },
       {
-          id: 3,
-          title: "TALOS_ARCHIVES 網站",
-          category: "開發",
-          desc: "使用 Next.js 和 Tailwind CSS 構建的工業科幻風格個人作品集網站。",
-          status: "在線"
-        }
+        id: 3,
+        title: "PYGAME_MINESWEEPER",
+        category: "遊戲",
+        desc: "使用 Python 和 Pygame 開發的經典踩地雷遊戲，支援三種難度級別。",
+        status: "在線",
+        url: "https://github.com/yukito0209/pygame-learning"
+      },
+      {
+        id: 4,
+        title: "TAPTAP_SENTIMENT",
+        category: "數據/ML",
+        desc: "TapTap 遊戲用戶評論情感分析 ML 專案，透過堆疊集成達到 86% 準確率。",
+        status: "在線",
+        url: "https://github.com/yukito0209/sentiment-analysis-of-taptap-game-user-reviews"
+      },
+      {
+        id: 5,
+        title: "GODOT_GAME_DEMO",
+        category: "遊戲",
+        desc: "使用 Godot 引擎構建的簡單 2D 像素遊戲 Demo，探索遊戲開發基礎。",
+        status: "原型",
+        url: "https://github.com/yukito0209/my-first-godot-game-demo"
+      },
+      {
+        id: 6,
+        title: "YAHEE_MUSIC_PLAYER",
+        category: "應用",
+        desc: "基於 Electron 構建的本地音樂播放器，毛玻璃 UI 設計，支援多種音訊格式。",
+        status: "在線",
+        url: "https://github.com/yukito0209/yahee-music-player"
+      },
+      {
+        id: 7,
+        title: "ANIME_RECOMMENDATION",
+        category: "數據/ML",
+        desc: "結合 BERT 嵌入與基於內容過濾的混合動漫推薦系統。",
+        status: "在線",
+        url: "https://github.com/yukito0209/anime-recommendation"
+      }
     ]
   }
 };
@@ -484,15 +589,17 @@ export default function OperativesPage() {
                                     <span className="text-[10px] font-mono text-talos-yellow border border-talos-yellow/30 px-1">
                                         {work.category}
                                     </span>
-                                    {work.status === 'CLASSIFIED' && <span className="text-[10px] text-red-500 font-bold border border-red-900 bg-red-900/20 px-1">{t.operatives.works.confidential}</span>}
+                                    <span className="text-[10px] font-mono text-gray-500 border border-white/10 px-1">
+                                        {work.status}
+                                    </span>
                                 </div>
                                 <h4 className="font-bold text-lg text-white mb-2 group-hover:text-talos-yellow transition-colors">{work.title}</h4>
                                 <p className="text-xs text-gray-400 leading-relaxed mb-4">
                                     {work.desc}
                                 </p>
-                                <button className="text-xs font-mono text-gray-500 hover:text-white flex items-center gap-1 group-hover:underline">
+                                <a href={work.url} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-gray-500 hover:text-white flex items-center gap-1 group-hover:underline">
                                     {t.operatives.works.access_file} <ChevronRight size={12} />
-                                </button>
+                                </a>
                             </div>
                         ))}
                     </motion.div>
