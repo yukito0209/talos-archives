@@ -1,35 +1,59 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Menu, X, Home, HardDrive, Users, 
   Database, Eye, Box, Megaphone, 
-  Settings, Power, ChevronRight, Globe,
+  Settings, Power, ChevronRight, Globe, ChevronDown,
   Volume2, VolumeX
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { useTranslation } from "@/lib/i18n/TranslationContext";
+import { useTranslation, Language } from "@/lib/i18n/TranslationContext";
 import { useScifiSound } from "@/hooks/useScifiSound";
+
+const LANG_OPTIONS: { code: Language; label: string }[] = [
+  { code: 'en', label: 'English' },
+  { code: 'zh-cn', label: '简体中文' },
+  { code: 'zh-tw', label: '繁體中文' },
+];
 
 export default function NavigationSystem() {
   const [isOpen, setIsOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const [sidebarLangOpen, setSidebarLangOpen] = useState(false);
   const pathname = usePathname();
   const { t, language, setLanguage } = useTranslation();
   const { playHover, playClick, playOpen, isMuted, toggleMute } = useScifiSound();
+  const langRef = useRef<HTMLDivElement>(null);
+  const sidebarLangRef = useRef<HTMLDivElement>(null);
 
   // Close sidebar on route change
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
-  const toggleLanguage = () => {
+  // Close dropdowns on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+      if (sidebarLangRef.current && !sidebarLangRef.current.contains(e.target as Node)) {
+        setSidebarLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectLanguage = (lang: Language) => {
     playClick();
-    if (language === 'en') setLanguage('zh-cn');
-    else if (language === 'zh-cn') setLanguage('zh-tw');
-    else setLanguage('en');
+    setLanguage(lang);
+    setLangOpen(false);
+    setSidebarLangOpen(false);
   };
 
   const MENU_ITEMS = [
@@ -82,16 +106,49 @@ export default function NavigationSystem() {
              <span>{isMuted ? t.common.sound_muted : t.common.sound_on}</span>
            </button>
 
-           <button 
-             onClick={toggleLanguage}
-             onMouseEnter={playHover}
-             className="flex items-center gap-2 hover:text-white transition-colors"
-           >
-             <Globe className="w-3 h-3" />
-             {language.toUpperCase()}
-           </button>
-           
-           <div>:: 24.331 ::</div>
+           <div ref={langRef} className="relative">
+             <button 
+               onClick={() => { setLangOpen(!langOpen); playClick(); }}
+               onMouseEnter={playHover}
+               className="flex items-center gap-2 hover:text-white transition-colors"
+             >
+                <Globe className="w-3 h-3" />
+                {LANG_OPTIONS.find(o => o.code === language)?.label}
+                <ChevronDown className={clsx("w-3 h-3 transition-transform duration-200", langOpen && "rotate-180")} />
+             </button>
+
+             <AnimatePresence>
+               {langOpen && (
+                 <motion.div
+                   initial={{ opacity: 0, y: -8 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   exit={{ opacity: 0, y: -8 }}
+                   transition={{ duration: 0.15 }}
+                   className="absolute right-0 top-full mt-2 border border-white/10 bg-[#0F0F0F] backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.5)] min-w-[80px] z-50"
+                 >
+                   <div className="h-0.5 w-full bg-gradient-to-r from-talos-yellow to-transparent opacity-50"></div>
+                   {LANG_OPTIONS.map((opt) => (
+                     <button
+                       key={opt.code}
+                       onClick={() => selectLanguage(opt.code)}
+                       onMouseEnter={playHover}
+                        className={clsx(
+                          "w-full px-4 py-2.5 text-xs font-mono tracking-wider transition-all duration-200 text-center",
+                          "hover:bg-white/5",
+                          language === opt.code
+                            ? "text-talos-yellow bg-talos-yellow/5"
+                            : "text-gray-400 hover:text-white"
+                        )}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            
+            <div>:: 24.331 ::</div>
         </div>
       </header>
 
@@ -196,12 +253,45 @@ export default function NavigationSystem() {
 
                  {/* Action Buttons */}
                  <div className="grid grid-cols-2 gap-4">
-                    <button 
-                      onClick={toggleLanguage}
-                      className="flex items-center justify-center gap-2 py-3 border border-white/10 text-xs font-mono text-gray-400 hover:bg-white/5 hover:text-white transition-colors"
-                    >
-                        <Globe size={14} /> {language.toUpperCase()}
-                    </button>
+                    <div ref={sidebarLangRef} className="relative">
+                      <button 
+                        onClick={() => { setSidebarLangOpen(!sidebarLangOpen); playClick(); }}
+                        className="w-full flex items-center justify-center gap-2 py-3 border border-white/10 text-xs font-mono text-gray-400 hover:bg-white/5 hover:text-white transition-colors"
+                      >
+                          <Globe size={14} /> {LANG_OPTIONS.find(o => o.code === language)?.label}
+                          <ChevronDown size={12} className={clsx("transition-transform duration-200", sidebarLangOpen && "rotate-180")} />
+                      </button>
+
+                      <AnimatePresence>
+                        {sidebarLangOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 8 }}
+                            transition={{ duration: 0.15 }}
+                            className="absolute bottom-full left-0 mb-2 border border-white/10 bg-[#0F0F0F] backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.5)] z-50 w-1/2"
+                          >
+                            <div className="h-0.5 w-full bg-gradient-to-r from-talos-yellow to-transparent opacity-50"></div>
+                            {LANG_OPTIONS.map((opt) => (
+                              <button
+                                key={opt.code}
+                                onClick={() => selectLanguage(opt.code)}
+                                onMouseEnter={playHover}
+                                className={clsx(
+                                  "w-full px-4 py-2.5 text-xs font-mono tracking-wider transition-all duration-200 text-center",
+                                  "hover:bg-white/5",
+                                  language === opt.code
+                                    ? "text-talos-yellow bg-talos-yellow/5"
+                                    : "text-gray-400 hover:text-white"
+                                )}
+                              >
+                                {opt.label}
+                              </button>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
                     <button className="flex items-center justify-center gap-2 py-3 bg-red-900/20 border border-red-500/20 text-xs font-mono text-red-400 hover:bg-red-900/40 transition-colors">
                         <Power size={14} /> {t.common.disconnect}
                     </button>
